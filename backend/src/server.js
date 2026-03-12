@@ -18,10 +18,11 @@ connectRedis()
 const app = express();
 
 app.use(cors({
-  origin: 'https://trado-sandy.vercel.app', // Must match your Vite URL exactly
-  credentials: true,               // Essential for sending the Auth cookie
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: [
+    "http://localhost:5173",
+    "https://trado-sandy.vercel.app"
+  ],
+  credentials: true,
 }));
 
 app.use(cookieParser())
