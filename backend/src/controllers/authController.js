@@ -15,8 +15,8 @@ export const registerUser = async (req, res) => {
         const user = await User.create({ name, email, password });
 
         // 3. Generate Token
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { 
-            expiresIn: '7d' 
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+            expiresIn: '7d'
         });
 
         // 4. Set Secure Cookie
@@ -24,24 +24,24 @@ export const registerUser = async (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
-            maxAge: 7 * 24 * 60 * 60 * 1000 
+            maxAge: 7 * 24 * 60 * 60 * 1000
         });
 
         // 5. Send Success Response
         return res.status(201).json({
             message: "User registered successfully",
-            user: { 
-                id: user._id, 
-                name: user.name, 
-                email: user.email 
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email
             }
         });
     } catch (error) {
         // Log the error for you to see in the terminal
         console.error("Registration Error:", error);
-        return res.status(500).json({ 
-            message: "Registration failed", 
-            error: error.message 
+        return res.status(500).json({
+            message: "Registration failed",
+            error: error.message
         });
     }
 };
@@ -64,25 +64,25 @@ export const loginUser = async (req, res) => {
         }
 
         // 3. Generate Token
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { 
-            expiresIn: '7d' 
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+            expiresIn: '7d'
         });
 
         // 4. Set Secure Cookie
         res.cookie('token', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'none',
-            maxAge: 7 * 24 * 60 * 60 * 1000 
+            secure: true,
+            sameSite: "none",
+            maxAge: 7 * 24 * 60 * 60 * 1000
         });
 
         return res.json({
             message: "Login successful",
-            user: { 
-                id: user._id, 
-                name: user.name, 
+            user: {
+                id: user._id,
+                name: user.name,
                 email: user.email,
-                wishlist: user.wishlist 
+                wishlist: user.wishlist
             }
         });
     } catch (error) {
