@@ -1,0 +1,44 @@
+<svg width="420" height="200" viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#9b5cff"/>
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#9b5cff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Brain shape -->
+  <path d="M140 70 
+           C120 40, 200 30, 230 60
+           C260 40, 300 70, 270 100
+           C250 130, 180 130, 150 100
+           C120 95, 120 85, 140 70Z"
+        fill="url(#brainGradient)" />
+
+  <!-- Trading line -->
+  <polyline 
+      points="150,90 170,80 190,85 210,70 230,75 250,60 270,65"
+      fill="none"
+      stroke="white"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round" />
+
+  <!-- Candlestick bars -->
+  <rect x="165" y="82" width="4" height="12" fill="#00d4ff"/>
+  <rect x="195" y="78" width="4" height="16" fill="#00d4ff"/>
+  <rect x="225" y="70" width="4" height="20" fill="#00d4ff"/>
+  <rect x="255" y="62" width="4" height="18" fill="#00d4ff"/>
+
+  <!-- Arrow -->
+  <polygon points="270,65 280,60 275,72" fill="white"/>
+
+  <!-- Title -->
+  <text x="110" y="170" font-size="40" font-family="Arial, Helvetica, sans-serif"
+        font-weight="bold" fill="url(#textGradient)">
+        NeuralTrade
+  </text>
+</svg>
