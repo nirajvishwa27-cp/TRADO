@@ -34,6 +34,8 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 4000;
 
+app.set("trust proxy", 1);
+
 app.use("/api/market", marketRoutes);
 app.use("/api/stocks", stockRoutes);
 app.use("/api/auth", authRoutes);

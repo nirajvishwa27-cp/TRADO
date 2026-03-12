@@ -6,7 +6,8 @@ const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const api = axios.create({
     baseURL: API_URL,
-    withCredentials: true, // This is crucial for sending/receiving cookies!
+    withCredentials: true, 
+    // This is crucial for sending/receiving cookies!
 });
 
 
